@@ -40,6 +40,7 @@ class Spider:
 
             # 将爬取到的网页内容存储至本地
             with open(self.dir+title+".txt", "w", encoding='utf-8') as f:
+                print(title)
                 for i in raw_content:
                     f.write(i.text)
 
@@ -49,7 +50,7 @@ class Spider:
             # 将新的url加入url管理器
             for i in raw_urls:
                 new_url = "https://baike.baidu.com" + i.attrs['href']
-                print(new_url)
+                # print(new_url)
                 self.url_manager.put(new_url)
 
             # 当计数器为0时退出

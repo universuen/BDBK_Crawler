@@ -12,17 +12,22 @@ class URL_Manager:
             else:
                 self.container = queue.LifoQueue()
 
+            self.used_url = []
+
         else:
             raise ModeError(mode)
 
 
     def put(self, url:str):
-        self.container.put(url)
+        if url not in self.used_url:
+            self.container.put(url)
 
 
     def get(self):
         if not self.is_empty():
-            return self.container.get()
+            url = self.container.get()
+            self.used_url.append(url)
+            return url
 
 
     def is_empty(self):
