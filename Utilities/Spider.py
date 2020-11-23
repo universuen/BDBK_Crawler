@@ -14,14 +14,14 @@ def get_html(url):
 
 
 class Spider:
-    def __init__(self, init_url: str, mode: str, path: str = "./", max_pages: int = 100):
+    def __init__(self, init_url: str, mode: str, path: str = "./", max_pages: int = -1):
         # 设置爬行模式
         self.url_manager = URLManager(mode)
         # 将第一个url放入url管理器
         self.url_manager.put(init_url)
         # 设置存储路径
         self.path = path
-        # 设置计数器
+        # 设置最大爬取页数
         self.count = max_pages
 
     def run(self):
