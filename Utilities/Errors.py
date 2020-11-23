@@ -4,4 +4,4 @@ class ModeError(ValueError):
         self.mode = mode
 
     def __str__(self):
-        return '"mode" should be "BFS" or "DFS", got "%s" instead.'%self.mode
+        return r'"mode" should be "BFS" or "DFS", got "%s" instead.' % self.mode
