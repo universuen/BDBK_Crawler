@@ -1,5 +1,5 @@
 # Baidubaike Spider
-Dump Baidubaike contents under different searching modes.
+Download Baidubaike contents under different searching modes elegantly🍷
 
 ## Environmental requirement
 + python 3.7.*
