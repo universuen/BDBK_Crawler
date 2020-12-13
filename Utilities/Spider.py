@@ -15,7 +15,7 @@ def get_html(url):
 
 class Spider:
     def __init__(self, init_url: str, mode: str, path: str = "./", max_pages: int = -1):
-        # 设置爬行模式
+        # 设置搜索策略
         self.url_manager = URLManager(mode)
         # 将第一个url放入url管理器
         self.url_manager.put(init_url)
@@ -40,13 +40,16 @@ class Spider:
 
             # 将爬取到的网页内容存储至本地
             with open(self.path + title + ".txt", "w", encoding='utf-8') as f:
-                print(title)
+                # print(title)
                 for i in raw_content:
                     f.write(i.text)
 
             # 从网页中解析出新的url
-            raw_urls = soup.find_all('a', target="_blank", href=re.compile(r"/item/(.*?)"),
-                                     attrs={"data-lemmaid": re.compile(r"(.*?)")})
+            raw_urls = soup.find_all('a',
+                                     target="_blank",
+                                     href=re.compile(r"/item/(.*?)"),
+                                     attrs={"data-lemmaid": re.compile(r"(.*?)")}
+                                     )
 
             # 将新的url加入url管理器
             for i in raw_urls:
