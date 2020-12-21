@@ -1,5 +1,5 @@
 # Baidubaike Spider
-Download Baidubaike contents under different searching modes elegantly 🍷
+大数据课程期末作业
 
 ## Environmental requirement
 + python 3.7.*
